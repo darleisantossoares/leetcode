@@ -30,7 +30,7 @@ def fib(n, memo):
     if n < 2:
         return n
 
-    ans = fib(n - 2) + fib(n - 1)
+    ans = fib(n - 2, memo) + fib(n - 1, memo)
     memo[n] = ans
     return ans
 ```
