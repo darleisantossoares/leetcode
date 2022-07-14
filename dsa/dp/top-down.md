@@ -5,6 +5,7 @@ Por exemplo no algoritmo de fibonacci
 
 ```
 def fib(n)
+    # Base case
     if n < 2:
         return n
 
@@ -13,4 +14,25 @@ def fib(n)
 ``` 
 
 Se analisarmos o caso acima veremos que caso ocorra uma chamada do tipo fib(10) para a função acima, a função irá computar o mesmo resultado por diversas vezes, isso é chamado de *Overlapping*
+
+Como podemos optimizar e aproveitar esses casos em que já foram processados?
+Basta grava-los em memória, e isso é a tal da *Memoization* 
+
+O código ficaria assim
+
+```
+def fib(n, memo):
+    # Base case
+    if n in memo:
+        return memo[n]
+
+    if n < 2:
+        return n
+
+    ans = fib(n - 2) + fib(n - 1)
+    memo[n] = ans
+    return ans
+```
+
+O código acima está aproveitando de outras interações em que já computamos um valor e o colocamos em um cache, nas próximas vezes em que formos buscar uma resposta já computada, nós simplesmente retornamos esse valor.
 
