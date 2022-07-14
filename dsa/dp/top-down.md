@@ -4,6 +4,7 @@ Normalmente para casos em que vc tem o mesmo sub problema deve-se usar memoizati
 Por exemplo no algoritmo de fibonacci
 
 '''
+
 def fib(n)
     if n < 2:
         return n
