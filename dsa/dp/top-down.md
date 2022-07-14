@@ -22,10 +22,11 @@ O código ficaria assim
 
 ```
 def fib(n, memo):
-    # Base case
+    # Memoization
     if n in memo:
         return memo[n]
 
+    # Base case
     if n < 2:
         return n
 
