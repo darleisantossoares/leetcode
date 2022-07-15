@@ -11,6 +11,11 @@ Usando esta lógica, conseguimos ver um relacionamento entre os nós e um DAG
 
 Usar um DAG fica mais simples de identificar *subproblems* e *overlapping subproblems* .
 
+No exemplo abaixo conseguimos ver essa relação.
+
+![image](https://user-images.githubusercontent.com/5891902/179262582-5eaf5a2a-e82d-4554-af3b-e215aa2bffbe.png)
+
+
 
 
 
