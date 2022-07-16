@@ -5,12 +5,14 @@ Leetcode 64
 https://leetcode.com/problems/minimum-path-sum/
 
 _TL:DR_
+
 Temos um grid NxM onde pra cada celula nos temos um preço a se pagar
 Queremos ir da celula [0][0] até a última celula da direita na última linha
 
 duas variaveis i e j
 
 i = representa a linha
+
 j = representa a coluna
 
 O subproblema:
@@ -37,6 +39,7 @@ def minPathSum(grid):
     return cost(grid, 0, 0)
 ```
 T(n * m) = O(2n+m)
+
 S(n * m) = O(n+m)
 
 *Top Down With Memoization*
