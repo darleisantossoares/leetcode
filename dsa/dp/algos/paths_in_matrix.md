@@ -78,18 +78,5 @@ def paths(matrix):
             dp[j] = prev_dp[j] + dp[j-1] if matrix[i][j] == 0 else 0
         prev_dp = dp
         dp = [0]*m
-    return prev_dp[m-1]def paths(matrix):
-    n, m = len(matrix), len(matrix[0])
-    prev_dp = [0]*m
-    dp = [0]*m
-    prev_dp[0] = 1 if (matrix[0][0] == 0) else 0
-    for j in range(1, m):
-        prev_dp[j] = prev_dp[j-1] if matrix[0][j] == 0 else 0
-    for i in range(1, n):
-        dp[0] = prev_dp[0] if matrix[i][0] == 0 else 0
-        for j in range(1, m):
-            dp[j] = prev_dp[j] + dp[j-1] if matrix[i][j] == 0 else 0
-        prev_dp = dp
-        dp = [0]*m
     return prev_dp[m-1]
 ```
