@@ -43,7 +43,9 @@ LCS(i,j)  1 + lcs(i+1,j+1)  if s1[i]==s2[j]
 
 ````
 
-A implementação com cache fica da seguinte forma
+### Top Down
+
+A implementação com cache e usando top-down approach fica da seguinte forma
 
 ```
 class Solution:
