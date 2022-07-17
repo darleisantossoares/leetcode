@@ -1,4 +1,4 @@
-## Longest Commom Subsequence
+## Longest Common Subsequence
 
 Leetcode.: https://leetcode.com/problems/longest-common-subsequence/
 
