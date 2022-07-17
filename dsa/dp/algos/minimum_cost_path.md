@@ -6,8 +6,7 @@ https://leetcode.com/problems/minimum-path-sum/
 
 _TL:DR_
 
-Temos um grid NxM onde pra cada celula nos temos um preço a se pagar
-Queremos ir da celula [0][0] até a última celula da direita na última linha
+Temos um grid NxM onde pra cada celula nos temos um preço a se pagar. Queremos ir da celula [0][0] até a última celula da direita na última linha
 
 duas variaveis i e j
 
@@ -61,5 +60,26 @@ def minPathSum(grid):
         else:
             memo[(i, j)] = matrix[i][j] + min(cost(matrix,i+1,j,memo), cost(matrix,i,j+1,memo))
             return memo[(i,j)]
+```
+T = O(n+m)
+S = O(n+m)
+
+
+### The same problem with Bottom Up Approach
+
+```
+def minPathSum(grid):
+    n = len(marix)
+    m = len(matrix[0])
+    dp = [[0]*m for i in range(n)]
+    dp[0][0] = matrix[0][0]
+    for j in range(1, m):
+        dp[0][j] = matrix[0][j] + dp[0][j-1]
+    for i in range(1, n):
+        dp[i][0] = matrix[i][0] + dp[i-1][0]
+    for i in range(1, n):
+        for j in range(1, m):
+            dp[i][j] = matrix[i][j] + min(dp[i-1][j], dp[i][j-1])
+    return dp[n-1][m-1]
 ```
 
