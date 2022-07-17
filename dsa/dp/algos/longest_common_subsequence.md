@@ -35,11 +35,11 @@ Talvez visualizando fique mais fácil. A arvore do algoritmo do primeiro caso é
 No fim das contas esse é o algoritmo
 
 ```
-         | 0 if i == |s1| or j == |s2|
+         | 0                         | if i == |s1| or j == |s2| # Base Case
          |
-LCS(i,j) | 1 + lcs(i+1,j+1)  if s1[i]==s2[j]
+LCS(i,j) | 1 + lcs(i+1,j+1)          | if s1[i]==s2[j]
          |
-         | max(lcs(i+1,j),lcs(i,j+1)
+         | max(lcs(i+1,j),lcs(i,j+1) | else
 ````
 
 ### Top Down
