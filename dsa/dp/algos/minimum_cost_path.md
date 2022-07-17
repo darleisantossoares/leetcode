@@ -69,7 +69,7 @@ S = O(n+m)
 
 ```
 def minPathSum(grid):
-    n = len(marix)
+    n = len(matrix)
     m = len(matrix[0])
     dp = [[0]*m for i in range(n)]
     dp[0][0] = matrix[0][0]
@@ -82,4 +82,32 @@ def minPathSum(grid):
             dp[i][j] = matrix[i][j] + min(dp[i-1][j], dp[i][j-1])
     return dp[n-1][m-1]
 ```
+
+T = O(n*m)
+S = O(n*m)
+
+Podemos melhorar a questão do espaço nesse algoritmo? Sim podemos
+
+Nesse caso vamos trabalhar somente com 2 linhas no algoritmo, nao com o grid inteiro
+
+```
+def cost(matrix):
+    n, m = len(matrix), len(matrix[0])
+    prev_dp = [0]*m
+    dp = [0]*m
+    prev_dp[0] = matrix[0][0]
+    for j in range(1, m):
+        prev_dp[j] = matrix[0][j] + prev_dp[j-1]
+    for i in range(1, n):
+        dp[0] = prev_dp[0] + matrix[i][0]
+        for j in range(1, m):
+            dp[j] = matrix[i][j] + min(prev_dp[j], dp[j-1])
+        prev_dp = dp
+        dp[0]*m
+    return prev_dp[m-1]
+```
+
+S = O(m)
+T = O(n*m)
+
 
