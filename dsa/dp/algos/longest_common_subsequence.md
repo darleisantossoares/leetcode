@@ -64,3 +64,38 @@ class Solution:
         return lcs(0,0,text1,text2,{})
 ```
 
+### Botoom Up
+
+M = len(s1) + 1
+N = len(s2) + 1
+
+Comece a primeira linha e a primeira coluna com zeros. Isso vai ajudar no out-of-bounds caso
+
+DP = [[0]*N+1 for i in range(M+1)]
+
+O algoritmo fica assim
+
+```
+        |  1 + dp[i-1][j-1]  | if s1[i-1]==s[j-1]
+DP(i,j) |
+        |  max(dp[i-1][j], dp[i][j-1] | else
+```
+
+A implementação fica assim
+
+```
+def lcs(s1, s2):
+    N = len(s1)
+    M = len(s2)
+    dp = [[0]*(M+1) for i in range(N+1)]
+    for i in range(1, N+1):
+        for j in range(1, M+1):
+            if s1[i-1] == s2[j-1]:
+                dp[i][j] = 1 + dp[i-1][j-1]
+            else:
+                dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+    return dp[N][M]
+```
+
+
+
