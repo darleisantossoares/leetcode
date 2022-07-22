@@ -1,7 +1,11 @@
+## Shortes Common Supersequence
+
+Leetcode.: https://leetcode.com/problems/shortest-common-supersequence/
+
 O algoritmo é o abaixo.
 
 ```
-scs(s1,s2) = |s1|+|s2| - |lcs(s1,s2)| 
+scs(s1,s2) = |s1|+|s2| - |lcs(s1,s2)|
 ```
 
 lcs = longest common subsequence
