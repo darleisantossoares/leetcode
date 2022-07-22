@@ -1,8 +1,6 @@
 ## Minimum Cost Path
 
-Leetcode 64
-
-https://leetcode.com/problems/minimum-path-sum/
+Leetcode.: https://leetcode.com/problems/minimum-path-sum/
 
 _TL:DR_
 
