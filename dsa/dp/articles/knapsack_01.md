@@ -13,6 +13,16 @@ knapsack(k,i)|knapsack(k,i+1)  :if Wi > k
              |max(Vi + knapsack(k-Wi,i+1), knapsack(k,i+1)) :else
 ```
 
+### The implementation of the algorithm
 
+```
+def knapsack(values, weights, k, i=0):
+    if i == len(values):
+        return 0
+    elif weights[i] > k:
+        return knapsack(values, weights, k, i+1)
+    else:
+        return max(values[i]+knapsack(values, weights,k-weights[i],i+1), knapsack(values, weights,k,i+1))
+```
 
 
