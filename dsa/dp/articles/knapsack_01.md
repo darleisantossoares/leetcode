@@ -16,13 +16,17 @@ knapsack(k,i)|knapsack(k,i+1)  :if Wi > k
 ### The implementation of the algorithm
 
 ```
-def knapsack(values, weights, k, i=0):
-    if i == len(values):
+def knapsack(values, weights, k, i=0, loopkup={}):
+    if (k, i) in loopkup:
+        return lookup[(k,i)]
+    elif i == len(values):
         return 0
     elif weights[i] > k:
-        return knapsack(values, weights, k, i+1)
+        lookup[(k,i)]= knapsack(values, weights, k, i+1, lookup)
+        return lookup[(k,i)]
     else:
-        return max(values[i]+knapsack(values, weights,k-weights[i],i+1), knapsack(values, weights,k,i+1))
+        lookup[(k,i)] = max(values[i]+knapsack(values, weights,k-weights[i],i+1,lookup), knapsack(values, weights,k,i+1,lookup))
+        return lookup[(k,i)]
 ```
 
 
