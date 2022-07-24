@@ -10,7 +10,7 @@ When have _n_ items, each one of them has a value _Vi_ and a weight _Wi_, and we
              |
 knapsack(k,i)|knapsack(k,i+1)  :if Wi > k
              |
-             |max(Vi + knapsack(k-Wi,i+1), knapsack(k,i+1))
+             |max(Vi + knapsack(k-Wi,i+1), knapsack(k,i+1)) :else
 ```
 
 
