@@ -12,13 +12,10 @@ _Example_
 input:
 
 arr=[1,2,3,1,4]
-
 k = 6
-
 output: 4
 
 explanation: we have 4 subsets that sum up to 6:
-
 [1,2,3],[1,1,4],[2,3,1] and [2,4]
 
 ### Formula
