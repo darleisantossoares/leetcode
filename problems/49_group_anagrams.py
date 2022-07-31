@@ -10,3 +10,12 @@ class Solution:
             count = countup(s)
             groups[count].append(s)
         return groups.values()
+
+## Solution 2
+
+class Solution2:
+    def groupAnagrams(self, strs: List[int]) -> List[List[int]]:
+        group = collections.defaultdict(list)
+        for s in strs:
+            group[tuple(sorted(s))].append(s) # another option is to coerce into string instead of tuple
+        return group.values()
