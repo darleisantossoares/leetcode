@@ -1,19 +1,23 @@
 class Solution:
     def numDecodings(self, s: str) -> int:
 
-        if s[0] == "0":
-            return 0
+        @cache
+        def ways(s, i=0):
+            if i == len(s):
+                return 1
+            elif s[i] == "0":
+                return 0
+            elif i+1 < len(s) and "10" <= s[i] + s[i+1] <= "26":
+                return ways(s,i+1) + ways(s,i+2)
+            else:
+                return ways(s, i+1)
 
-        two_back = 1
-        one_back = 1
-        for i in range(1, len(s)):
-            current = 0
-            if s[i] != "0":
-                current = one_back
-            two_digit = int(s[i - 1: i + 1])
-            if two_digit >= 10 and two_digit <= 26:
-                current += two_back
-            two_back = one_back
-            one_back = current
+        return ways(s,0)
 
-        return one_back
+###
+#        |1 :if i = |s|
+#        |0 :if s[i] = "0"
+# ways(i)|
+#        |ways(i+1)+ways(i+2) :if i + 1 < |s| and "10" <= s[i] + s[i+1] <= "26"
+#        |ways(i+1) :otherwise
+###
